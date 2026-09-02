@@ -7,6 +7,12 @@ import "./App.css";
 
 const VIEWS = { LANDING: "landing", LOADING: "loading", RESULT: "result" };
 
+const FRIENDLY_ERROR_MESSAGES = {
+  API_UNAVAILABLE: "Riot's servers aren't cooperating right now. Try again in a bit.",
+  RATE_LIMITED: "Too many requests right now. Give it a moment and try again.",
+  INTERNAL_ERROR: "Something went wrong on our end. Try again.",
+};
+
 export default function App() {
   const [view, setView] = useState(VIEWS.LANDING);
   const [result, setResult] = useState(null);
@@ -26,7 +32,8 @@ export default function App() {
       setResult(data);
       setView(VIEWS.RESULT);
     } catch (err) {
-      setError(err.message || "Something went wrong.");
+      console.error(err);
+      setError(FRIENDLY_ERROR_MESSAGES[err.code] || err.message || "Something went wrong.");
       setView(VIEWS.LANDING);
     }
   }

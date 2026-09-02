@@ -51,16 +51,16 @@ Weaknesses: ${analysis.weaknesses.join(", ") || "none notable"}
 Strengths: ${analysis.strengths.join(", ") || "none notable"}`;
 
   try {
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
+    const response = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
         "content-type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
+        authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        model: "claude-sonnet-5",
-        max_tokens: 300,
+        model: "openai/gpt-oss-120b",
+        max_tokens: 400,
+        reasoning_effort: "low",
         messages: [{ role: "user", content: prompt }],
       }),
     });
@@ -68,7 +68,7 @@ Strengths: ${analysis.strengths.join(", ") || "none notable"}`;
     if (!response.ok) return null;
 
     const data = await response.json();
-    const text = data?.content?.[0]?.text;
+    const text = data?.choices?.[0]?.message?.content;
     if (!text) return null;
 
     const verdictMatch = text.match(/VERDICT:\s*(.+)/i);

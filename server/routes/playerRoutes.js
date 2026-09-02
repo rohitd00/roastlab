@@ -7,6 +7,10 @@ const router = express.Router();
 // Dev convenience endpoint: lists the Riot IDs available in mock mode so the
 // frontend can suggest them. Only meaningful when DATA_SOURCE=mock.
 router.get("/players/mock", (_req, res) => {
+  if (process.env.DATA_SOURCE !== "mock") {
+    return res.json({ success: true, riotIds: [] });
+  }
+
   try {
     const playersPath = path.join(__dirname, "..", "data", "mock-players.json");
     const players = JSON.parse(fs.readFileSync(playersPath, "utf-8"));

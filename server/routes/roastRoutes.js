@@ -88,6 +88,20 @@ router.post("/roast", async (req, res) => {
     });
   } catch (err) {
     console.error(err);
+
+    if (err.code === "API_UNAVAILABLE") {
+      return errorResponse(res, 502, "API_UNAVAILABLE", err.message);
+    }
+
+    if (err.code === "RATE_LIMITED") {
+      return errorResponse(
+        res,
+        429,
+        "RATE_LIMITED",
+        "Too many requests right now. Give the server a moment and try again."
+      );
+    }
+
     return errorResponse(
       res,
       500,
