@@ -47,15 +47,7 @@ export default function LandingPage({ onSubmit, loading, error, onDismissError, 
               value={riotId}
               onChange={(e) => setRiotId(e.target.value)}
               autoComplete="off"
-              list={mockRiotIds?.length ? "mock-riot-ids" : undefined}
             />
-            {mockRiotIds?.length > 0 && (
-              <datalist id="mock-riot-ids">
-                {mockRiotIds.map((id) => (
-                  <option value={id} key={id} />
-                ))}
-              </datalist>
-            )}
           </div>
 
           <div className="field">
