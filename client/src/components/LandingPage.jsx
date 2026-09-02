@@ -2,13 +2,6 @@ import { useState } from "react";
 import { isValidRiotId } from "../lib/api";
 import ErrorBanner from "./ErrorBanner";
 
-const REGIONS = [
-  { value: "na", label: "North America" },
-  { value: "eu", label: "Europe" },
-  { value: "ap", label: "Asia Pacific" },
-  { value: "kr", label: "Korea" },
-];
-
 const INTENSITIES = [
   { value: "friendly", label: "Friendly" },
   { value: "brutal", label: "Brutal" },
@@ -17,7 +10,6 @@ const INTENSITIES = [
 
 export default function LandingPage({ onSubmit, loading, error, onDismissError, mockRiotIds }) {
   const [riotId, setRiotId] = useState("");
-  const [region, setRegion] = useState("ap");
   const [intensity, setIntensity] = useState("brutal");
   const [formError, setFormError] = useState(null);
 
@@ -30,7 +22,7 @@ export default function LandingPage({ onSubmit, loading, error, onDismissError, 
     }
 
     setFormError(null);
-    onSubmit({ riotId: riotId.trim(), region, intensity });
+    onSubmit({ riotId: riotId.trim(), intensity });
   }
 
   return (
@@ -66,28 +58,15 @@ export default function LandingPage({ onSubmit, loading, error, onDismissError, 
             )}
           </div>
 
-          <div className="field-row">
-            <div className="field">
-              <label htmlFor="region">Region</label>
-              <select id="region" value={region} onChange={(e) => setRegion(e.target.value)}>
-                {REGIONS.map((r) => (
-                  <option value={r.value} key={r.value}>
-                    {r.label}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div className="field">
-              <label htmlFor="intensity">Intensity</label>
-              <select id="intensity" value={intensity} onChange={(e) => setIntensity(e.target.value)}>
-                {INTENSITIES.map((i) => (
-                  <option value={i.value} key={i.value}>
-                    {i.label}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="field">
+            <label htmlFor="intensity">Intensity</label>
+            <select id="intensity" value={intensity} onChange={(e) => setIntensity(e.target.value)}>
+              {INTENSITIES.map((i) => (
+                <option value={i.value} key={i.value}>
+                  {i.label}
+                </option>
+              ))}
+            </select>
           </div>
 
           {formError && <p className="field-error">{formError}</p>}

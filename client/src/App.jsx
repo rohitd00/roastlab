@@ -17,12 +17,12 @@ export default function App() {
     fetchMockRiotIds().then(setMockRiotIds);
   }, []);
 
-  async function handleSubmit({ riotId, region, intensity }) {
+  async function handleSubmit({ riotId, intensity }) {
     setError(null);
     setView(VIEWS.LOADING);
 
     try {
-      const data = await requestRoast({ riotId, region, intensity });
+      const data = await requestRoast({ riotId, intensity });
       setResult(data);
       setView(VIEWS.RESULT);
     } catch (err) {

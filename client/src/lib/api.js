@@ -4,11 +4,11 @@ export function isValidRiotId(riotId) {
   return typeof riotId === "string" && RIOT_ID_REGEX.test(riotId.trim());
 }
 
-export async function requestRoast({ riotId, region, intensity }) {
+export async function requestRoast({ riotId, intensity }) {
   const response = await fetch("/api/roast", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ riotId, region, intensity }),
+    body: JSON.stringify({ riotId, intensity }),
   });
 
   const data = await response.json();

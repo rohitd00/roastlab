@@ -64,11 +64,6 @@
   flex: 1;
 }
 
-.field-row {
-  display: flex;
-  gap: 12px;
-}
-
 label {
   font-size: 0.8rem;
   color: var(--text-muted);
@@ -555,9 +550,5 @@ select {
 
   .crimes-list {
     grid-template-columns: 1fr;
-  }
-
-  .field-row {
-    flex-direction: column;
   }
 }
