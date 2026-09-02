@@ -1,0 +1,26 @@
+{
+  "RohitDas#1234": {
+    "puuid": "puuid-rohitdas-1234",
+    "gameName": "RohitDas",
+    "tagLine": "1234",
+    "region": "ap",
+    "rank": "Diamond 2",
+    "rr": 57
+  },
+  "SentinelSarah#NA1": {
+    "puuid": "puuid-sentinelsarah-na1",
+    "gameName": "SentinelSarah",
+    "tagLine": "NA1",
+    "region": "na",
+    "rank": "Ascendant 2",
+    "rr": 44
+  },
+  "MidPlat#EUW": {
+    "puuid": "puuid-midplat-euw",
+    "gameName": "MidPlat",
+    "tagLine": "EUW",
+    "region": "eu",
+    "rank": "Platinum 1",
+    "rr": 32
+  }
+}

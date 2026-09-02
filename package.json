@@ -1,0 +1,26 @@
+{
+  "name": "valorant-roast-lab",
+  "version": "1.0.0",
+  "description": "Valorant Roast Lab - analyzes VALORANT performance stats and generates a data-backed roast",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev:server": "nodemon server.js",
+    "dev:client": "npm run dev --prefix client",
+    "dev": "concurrently -n server,client -c blue,magenta \"npm:dev:server\" \"npm:dev:client\"",
+    "build:client": "npm run build --prefix client",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5",
+    "nodemon": "^3.1.4"
+  },
+  "author": "",
+  "license": "ISC"
+}
