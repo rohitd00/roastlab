@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Roastlab is under development. Your developer history will be judged soon.">
+  <title>Roastlab — Coming Soon</title>
+  <style>
+    :root {
+      --background: #09090b;
+      --foreground: #fafafa;
+      --muted: #a1a1aa;
+      --border: #27272a;
+      --card: #0f0f11;
+      --danger: #ef4444;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--background);
+      color: var(--foreground);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .page {
+      width: min(100% - 40px, 720px);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px 0;
+    }
+
+    .card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card);
+      padding: 42px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .25);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 28px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--danger);
+      box-shadow: 0 0 10px rgba(239, 68, 68, .35);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(32px, 7vw, 52px);
+      line-height: 1;
+      letter-spacing: -.06em;
+      font-weight: 600;
+    }
+
+    h1 span { color: var(--muted); }
+
+    .description {
+      max-width: 570px;
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .terminal {
+      margin-top: 32px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #09090b;
+    }
+
+    .terminal-bar {
+      height: 34px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      border-bottom: 1px solid var(--border);
+      color: #52525b;
+      font-size: 11px;
+    }
+
+    .terminal-content {
+      padding: 18px;
+      color: #d4d4d8;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .prompt { color: #71717a; }
+    .highlight { color: var(--foreground); }
+
+    .cursor {
+      display: inline-block;
+      width: 7px;
+      height: 14px;
+      margin-left: 4px;
+      vertical-align: -2px;
+      background: #71717a;
+      animation: blink 1s steps(2, start) infinite;
+    }
+
+    @keyframes blink { 50% { opacity: 0; } }
+
+    footer {
+      margin-top: 18px;
+      text-align: center;
+      color: #52525b;
+      font-size: 10px;
+    }
+
+    footer a {
+      color: #71717a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 150ms ease, border-color 150ms ease;
+    }
+
+    footer a:hover {
+      color: var(--foreground);
+      border-color: var(--border);
+    }
+
+    @media (max-width: 560px) {
+      .page { width: min(100% - 28px, 720px); }
+      .card { padding: 28px 24px; }
+      .description { font-size: 13px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+    <section class="card" aria-labelledby="title">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        <span>ROASTLAB / IN DEVELOPMENT</span>
+      </div>
+
+      <h1 id="title">your code.<br><span>finally judged.</span></h1>
+
+      <p class="description">
+        Roastlab brings together your GitHub, Reddit, LeetCode and Codeforces
+        history and turns your developer activity into a personalized roast.
+      </p>
+
+      <div class="terminal" aria-label="Development status">
+        <div class="terminal-bar">roastlab</div>
+        <div class="terminal-content">
+          <span class="prompt">$</span>
+          <span class="highlight"> checking developer history...</span><br>
+          <span class="prompt">→</span>
+          <span> preparing judgment</span><span class="cursor"></span>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <a href="mailto:rohitdasrd029@gmail.com">contact developer</a>
+    </footer>
+  </main>
+</body>
+</html>
